@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            width: 150px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .actionsth {
+            width: 100px;
+        }
+
+        .ageth {
+            width: 50px;
+        }
+
+        a:visited {
+            color: blue;
+        }
+
+        a:active {
+            color: red;
+        }
+
+        .create-button {
+            display: block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            border: 1px solid black;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: auto;
+
+        }
+
+        .create-button:hover {
+            background-color: #45a049;
+        }
+
+        .create-button:active {
+            background-color: #285c2a;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Список пользователей</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th class="ageth">Возраст</th>
+                <th class="actionsth" colspan="2">Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.age}"></td>
+                <td class="button">
+                    <a th:href="@{/user-update/(id=${user.id})}">Изменить</a>
+                </td>
+                <td class="button">
+                    <a th:href="@{/user-delete/(id=${user.id})}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="create-button" onclick="document.location='user-add'">Создать пользователя</button>
+</div>
+</body>
+</html>
