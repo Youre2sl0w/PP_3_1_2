@@ -1,6 +1,6 @@
-package web.service;
+package ru.youre2sl0w.springboot.service;
 
-import web.model.User;
+import ru.youre2sl0w.springboot.model.User;
 
 import java.util.List;
 

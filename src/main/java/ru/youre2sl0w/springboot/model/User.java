@@ -1,4 +1,4 @@
-package web.model;
+package ru.youre2sl0w.springboot.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

@@ -1,8 +1,8 @@
-package web.dao;
+package ru.youre2sl0w.springboot.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import web.model.User;
+import ru.youre2sl0w.springboot.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,9 +1,9 @@
-package web.service;
+package ru.youre2sl0w.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.dao.UserDao;
-import web.model.User;
+import ru.youre2sl0w.springboot.dao.UserDao;
+import ru.youre2sl0w.springboot.model.User;
 
 import java.util.List;
 
