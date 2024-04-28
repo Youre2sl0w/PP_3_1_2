@@ -26,14 +26,12 @@ public class UserController {
     @GetMapping("/")
     public String getUsersList(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-
         return "user-list";
     }
 
     @GetMapping("/user-add")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
-
         return "user-add";
     }
 
@@ -42,15 +40,13 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user-add";
         }
-        userService.addUser(user);
-
+        userService.saveUser(user);
         return "redirect:/";
     }
 
     @GetMapping("/user-update")
     public String updateUserForm(@RequestParam(name = "id") Long id, Model model) {
         model.addAttribute("user", userService.findUserById(id));
-
         return "user-update";
     }
 
@@ -59,8 +55,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user-update";
         }
-        userService.updateUser(user);
-
+        userService.saveUser(user);
         return "redirect:/";
     }
 
